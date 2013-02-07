@@ -1,0 +1,7 @@
+/.settings
+/.project
+/.buildpath
+/composer.phar
+/vendor
+
+tests/sandbox.php

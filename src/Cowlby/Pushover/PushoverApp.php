@@ -6,14 +6,13 @@ use Pimple;
 
 class PushoverApp extends Pimple implements PushoverInterface
 {
-	public function __construct($token, $user, $device)
+	public function __construct($token, $user)
 	{
 		$this['token'] = $token;
 		$this['user'] = $user;
-		$this['device'] = $device;
 	}
 	
-	public function push($message)
+	public function push($message, array $parameters = array())
 	{
 		$fp = fsockopen('ssl://api.pushover.net', 443, $errno, $errstr, 30);
 
@@ -21,12 +20,11 @@ class PushoverApp extends Pimple implements PushoverInterface
             throw new \RuntimeException($errstr, $errno);
         }
 
-		$body = sprintf('token=%s&user=%s&device=%s&message=%s',
-			urlencode($this['token']),
-			urlencode($this['user']),
-			urlencode($this['device']),
-			urlencode($message)
-		);
+		$body = http_build_query(array_merge($parameters, array(
+			'token' => $this['token'],
+			'user' => $this['user'],
+			'message' => $message
+		)));
 
         $request = "POST /1/messages.json HTTP/1.1\r\n";
         $request .= "Host: api.pushover.net\r\n";
@@ -38,11 +36,6 @@ class PushoverApp extends Pimple implements PushoverInterface
         $request .= $body;
 
         fwrite($fp, $request);
-
-		while (!feof($fp)) {
-			echo fgets($fp, 128);
-	    }
-
         fclose($fp);
 
         return TRUE;
