@@ -22,7 +22,7 @@ interface PushoverInterface
      * Pushes a message to Pushover.
      *
      * @param string $message The message to log.
-	 * @param array $parameters Optional parameters to include.
+     * @param array $parameters Optional parameters to include.
      * @return PushoverInterface
      */
     public function push($message, array $parameters = array());
