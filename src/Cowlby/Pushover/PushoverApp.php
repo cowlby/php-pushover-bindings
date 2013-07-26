@@ -51,7 +51,7 @@ class PushoverApp extends Pimple implements PushoverInterface
 
         $request = "POST /1/messages.json HTTP/1.1\r\n";
         $request .= "Host: api.pushover.net\r\n";
-        $request .= "User-Agent: PHP Pushover Bindings/0.x (+https://github.com/cowlby/php-pushover-bindings)\r\n";
+        $request .= "User-Agent: PHP Pushover Bindings/1.x (+https://github.com/cowlby/php-pushover-bindings)\r\n";
         $request .= "Content-Type: application/x-www-form-urlencoded\r\n";
         $request .= "Content-Length: " . strlen($body) . "\r\n";
         $request .= "Connection: Close\r\n";
