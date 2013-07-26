@@ -1,25 +1,32 @@
 {
-    "name": "cowlby/php-pushover-bindings",
-    "description": "PHP bindings for the Pushover API.",
-    "type": "library",
-    "keywords": ["logging", "pushover", "api bindings"],
-    "license": "MIT",
-
-    "authors": [
-        {
-            "name": "Jose Prado",
-            "email": "cowlby@me.com"
-        }
-    ],
-
-    "require": {
-        "pimple/pimple": "1.0.*"
-    },
-
-    "autoload": {
-        "psr-0": {
-            "Cowlby\\Pushover": "src/",
-            "Cowlby\\Tests\\Pushover": "tests/"
-        }
-    }
+	"name" : "cowlby/php-pushover-bindings",
+	"description" : "PHP bindings for the Pushover API.",
+	"type" : "library",
+	"authors" : [{
+			"name" : "Jose Prado",
+			"email" : "cowlby@me.com"
+		}
+	],
+	"keywords" : [
+		"logging",
+		"pushover",
+		"api bindings"
+	],
+	"license" : [
+		"MIT"
+	],
+	"require" : {
+		"pimple/pimple" : "~1.0"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Cowlby\\Pushover" : "src/"
+		}
+	},
+	"support" : {
+		"source" : "https://github.com/cowlby/php-pushover-bindings",
+		"email" : "cowlby@me.com",
+		"issues" : "https://github.com/cowlby/php-pushover-bindings/issues",
+		"wiki" : "https://github.com/cowlby/php-pushover-bindings/wiki"
+	}
 }
